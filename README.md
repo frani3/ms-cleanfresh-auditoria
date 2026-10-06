@@ -44,3 +44,14 @@ Corre en `http://localhost:8085`. Probar: `curl http://localhost:8085/api/audito
 
 Ver [`CLAUDE.md`](CLAUDE.md) y, en el repo del frontend,
 `EP2/ARQUITECTURA.md`.
+
+## Docker
+
+`Dockerfile` multi-etapa (Maven + JDK 21 para compilar, JRE 21 sin root para correr). Se configura solo por variables de entorno.
+
+```bash
+docker build -t cleanfresh/auditoria .
+docker run -p 8085:8085 cleanfresh/auditoria
+```
+
+Los 5 microservicios se levantan juntos con el `docker-compose.yml` de `EP2/despliegue/` en el repo `cleanfresh-frontend`.
